@@ -46,6 +46,7 @@ export default class RectangleRoiTool extends BaseAnnotationTool {
         drawHandlesOnHover: false,
         hideHandlesIfMoving: false,
         renderDashed: false,
+        blackoutRect: false,
         // showMinMax: false,
         // showHounsfieldUnits: true
       },
@@ -175,6 +176,7 @@ export default class RectangleRoiTool extends BaseAnnotationTool {
       drawHandlesOnHover,
       hideHandlesIfMoving,
       renderDashed,
+      blackoutRect,
     } = this.configuration;
     const context = getNewContext(eventData.canvasContext.canvas);
     const { rowPixelSpacing, colPixelSpacing } = getPixelSpacing(image);
@@ -212,6 +214,12 @@ export default class RectangleRoiTool extends BaseAnnotationTool {
 
         if (renderDashed) {
           rectOptions.lineDash = lineDash;
+        }
+
+        if (blackoutRect) {
+            rectOptions.fill = true;
+            rectOptions.fillStyle = 'black';
+            rectOptions.opacity = 0.5;
         }
 
         // Draw

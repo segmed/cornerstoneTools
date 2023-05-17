@@ -81,15 +81,12 @@ export default function(
     corner3 = rotatePoint(corner3, centerPoint, rotation);
     corner4 = rotatePoint(corner4, centerPoint, rotation);
   }
-  options.fillStyle = 'black';
+
   path(context, options, context => {
     context.moveTo(corner1.x, corner1.y);
     context.lineTo(corner3.x, corner3.y);
     context.lineTo(corner2.x, corner2.y);
     context.lineTo(corner4.x, corner4.y);
     context.lineTo(corner1.x, corner1.y);
-    context.closePath();
-    // Fill the rectangle
-    context.fill(); //// line added
   });
 }
