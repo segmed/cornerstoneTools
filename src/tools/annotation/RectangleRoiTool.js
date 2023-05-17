@@ -456,7 +456,7 @@ function _formatArea(area, hasPixelSpacing) {
     ? ` mm${String.fromCharCode(178)}`
     : ` px${String.fromCharCode(178)}`;
 
-  return `Area: ${numbersWithCommas(area.toFixed(2))}${suffix}`;
+  return `Blackout area: ${numbersWithCommas(area.toFixed(2))}${suffix}`;
 }
 
 function _getUnit(modality, showHounsfieldUnits) {
