@@ -217,9 +217,9 @@ export default class RectangleRoiTool extends BaseAnnotationTool {
         }
 
         if (blackoutRect) {
-            rectOptions.fill = true;
-            rectOptions.fillStyle = 'black';
-            rectOptions.opacity = 0.5;
+          rectOptions.fill = true;
+          rectOptions.fillStyle = 'black';
+          rectOptions.opacity = 0.5;
         }
 
         // Draw
@@ -548,6 +548,5 @@ function _createTextBoxContent(
 
   textLines.push(_formatArea(area, hasPixelSpacing));
   otherLines.forEach(x => textLines.push(x));
-
-  return textLines;
+  return [];
 }

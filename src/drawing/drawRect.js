@@ -88,5 +88,8 @@ export default function(
     context.lineTo(corner2.x, corner2.y);
     context.lineTo(corner4.x, corner4.y);
     context.lineTo(corner1.x, corner1.y);
+    // context.fillStyle = 'black';
+    context.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    context.fill();
   });
 }

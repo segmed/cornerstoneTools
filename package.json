@@ -1,7 +1,7 @@
 {
-  "name": "cornerstone-tools",
-  "version": "0.0.0-semantically-released",
-  "description": "Medical imaging tools for the Cornerstone library",
+  "name": "segmed-temp-cornerstone-tools",
+  "version": "0.0.2-segmed-semantically-released",
+  "description": "This is a test package forked from cornerstone tools",
   "main": "./dist/cornerstoneTools.js",
   "keywords": [
     "DICOM",
@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cornerstonejs/cornerstoneTools.git"
+    "url": "https://github.com/segmed/cornerstoneTools"
   },
   "engines": {
     "node": ">=8.16.0"
@@ -63,7 +63,6 @@
     "all-contributors-cli": "5.11.0",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.4",
-    "canvas": "^2.9.1",
     "commitizen": "^4.0.3",
     "coveralls": "3.0.2",
     "cz-conventional-changelog": "2.1.0",
@@ -78,7 +77,7 @@
     "gitbook-plugin-github": "3.0.0",
     "gitbook-plugin-sitemap": "1.2.0",
     "husky": "3.0.x",
-    "jest": "^25.1.0",
+    "jest": "^25.5.4",
     "jest-junit": "5.1.0",
     "lint-staged": "^9.2.5",
     "lodash": "^4.17.15",
