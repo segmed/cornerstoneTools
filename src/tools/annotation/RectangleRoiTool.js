@@ -222,6 +222,16 @@ export default class RectangleRoiTool extends BaseAnnotationTool {
           rectOptions.opacity = 0.5;
         }
 
+        // segmed
+        const currentImageId = image.imageId || '';
+        rectOptions.currentImageId = currentImageId;
+
+        // Button x coordinates
+        data.button = {
+          x: data.handles.end.x,
+          y: data.handles.start.y,
+          radius: 10,
+        };
         // Draw
         drawRect(
           context,
@@ -234,7 +244,7 @@ export default class RectangleRoiTool extends BaseAnnotationTool {
         );
 
         if (this.configuration.drawHandles) {
-          drawHandles(context, eventData, data.handles, handleOptions);
+          // drawHandles(context, eventData, data.handles, handleOptions);
         }
 
         // Update textbox stats
