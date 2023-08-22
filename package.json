@@ -1,6 +1,6 @@
 {
   "name": "segmed-temp-cornerstone-tools",
-  "version": "0.0.42-segmed-semantically-released",
+  "version": "0.0.43-segmed-semantically-released",
   "description": "This is a test package forked from cornerstone tools",
   "main": "./dist/cornerstoneTools.js",
   "keywords": [

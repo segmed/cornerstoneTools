@@ -28,7 +28,13 @@ export default function(
   coordSystem = 'pixel',
   initialRotation = 0.0
 ) {
-  const canvas2 = document.getElementsByClassName('cornerstone-canvas')[0];
+  let canvas2;
+  try {
+    canvas2 = document.getElementsByClassName('cornerstone-canvas')[0];
+  } catch (error) {
+    console.log('Error while getting the cornerstone-canvas element:', error);
+    return;
+  }
   const width2 = canvas2.width;
   const ctx = canvas2.getContext('2d');
 
@@ -119,31 +125,12 @@ export default function(
     corner2.x = leftPadding;
   }
 
-  /*const canvasWidth = context.canvas.width;
-  // Calculate the left padding dynamically
-  const leftPadding = (canvasWidth - options.imageWidth) / 2;
-  // Calculate the maximum allowed x position for corner2
-  const corner2MaxX = leftPadding + options.imageWidth;
-
-  // If corner2.x exceeds the maximum, pull it back to the maximum
-  if (corner2.x > corner2MaxX) {
-    const diff = corner2.x - corner2MaxX;
-    corner2.x -= diff;
-  }*/
-
-  // corner2.x es 520, absolutex es 820, imageWidth es 500?
-  // corner2.x es 820, absolutex es 820, imageWidth es 500?
   if (corner2.y > 512) {
     corner2.y = 512;
   }
 
   const w = Math.abs(corner1.x - corner2.x);
   const h = Math.abs(corner1.y - corner2.y);
-
-  /*corner1 = {
-    x: Math.min(corner1.x, corner2.x),
-    y: Math.min(corner1.y, corner2.y),
-  };*/
 
   corner1 = {
     x: Math.max(0, Math.min(corner1.x, corner2.x)),
@@ -160,28 +147,11 @@ export default function(
     y: corner1.y,
   };
 
-  /*if (corner3.x > options.imageWidth) {
-    corner3.x = options.imageWidth;
-  }*/
-
   let corner4 = {
     x: corner1.x,
     y: corner1.y + h,
   };
-  /*if (corner4.y > options.imageHeight) {
-    corner4.y = options.imageHeight;
-  }*/
 
-  // Constrain the rotated corners within the image dimensions
-  /*corner1.x = Math.max(0, Math.min(options.imageWidth, corner1.x));
-  corner1.y = Math.max(0, Math.min(options.imageHeight, corner1.y));
-  corner2.x = Math.max(0, Math.min(options.imageWidth, corner2.x));
-  corner2.y = Math.max(0, Math.min(options.imageHeight, corner2.y));
-  corner3.x = Math.max(0, Math.min(options.imageWidth, corner3.x));
-  corner3.y = Math.max(0, Math.min(options.imageHeight, corner3.y));
-  corner4.x = Math.max(0, Math.min(options.imageWidth, corner4.x));
-  corner4.y = Math.max(0, Math.min(options.imageHeight, corner4.y));
-*/
   if (Math.abs(rotation) > 0.05) {
     corner1 = rotatePoint(corner1, centerPoint, rotation);
     corner2 = rotatePoint(corner2, centerPoint, rotation);
@@ -196,7 +166,6 @@ export default function(
     context.lineTo(corner2.x, corner2.y);
     context.lineTo(corner4.x, corner4.y);
     context.lineTo(corner1.x, corner1.y);
-    // context.fillStyle = 'black';
     context.fillStyle = 'rgba(0, 0, 0, 0.5)';
     context.fill();
     // Drawing the circle at the top right corner of the rectangle
